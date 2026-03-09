@@ -1,0 +1,203 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+main{
+    border-bottom:1px solid #ccc;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
+
+body{
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  padding: 30px 0 10px;
+}
+
+h1{
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+main{
+  margin-top: 30px;
+}
+
+ul{
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+li{
+  list-style: none;
+  width: 140px;
+  padding: 18px 0;
+  background: #ffffff;
+  color: #333;
+  border-radius: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+li:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+  background: #ffe082;
+}
+
+li:active{
+  transform: scale(0.96);
+}
+
+#pc_hands{
+  display: inline-block;
+  font-size: 42px;
+  font-weight: bold;
+  background: rgba(255,255,255,0.15);
+  padding: 10px 24px;
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+#judgment{
+  margin: 24px auto 0;
+  width: 220px;
+  padding: 14px 0;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 14px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+#ai_comment{
+  margin: 24px auto 0;
+  max-width: 420px;
+  padding: 16px 20px;
+  background: #fff;
+  color: #333;
+  border-radius: 18px;
+  font-size: 20px;
+  line-height: 1.6;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+#ai_comment::before{
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 40px;
+  border-width: 0 12px 12px 12px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+h1{
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin: 0;
+  color: #333;
+}
+
+header{
+  background: rgba(255,255,255,0.9);
+  padding: 30px 0 10px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+h1{
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin: 0;
+  color: #333;
+}
+
+h1{
+  font-size: 44px;
+  letter-spacing: 6px;
+  color: #fff;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+#confetti-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.confetti{
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  opacity: 0.9;
+  animation: fall 2s linear forwards;
+}
+
+@keyframes fall{
+  0%{
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+#judgment{
+  transition: transform 0.2s;
+}

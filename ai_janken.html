@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="js/jquery-2.1.3.min.js"></script>
+        <link rel="stylesheet" href="css/sample.css">
+        <title>AIじゃんけん</title>
+    </head>
+
+    <body>
+        <div id="confetti-container"></div>
+
+        <header>
+            <h1>AIじゃんけん</h1>
+        </header>
+
+        <main>
+            <ul>
+                <li id="gu_btn">✊ グー</li>
+                <li id="cho_btn">✌️ チョキ</li>
+                <li id="par_btn">✋ パー</li>
+            </ul>
+            <div>AIの出した手は？「<span id="pc_hands">なに？</span>」</div>
+            <div id="judgment">勝ち</div>
+            <br>
+            <div id="ai_comment">AI: 勝負しましょう</div>
+
+        </main>
+
+        <footer></footer>
+        <script>
+            let guCount = 0;
+            let choCount = 0;
+            let parCount = 0;
+
+            $("#gu_btn").on("click", function () {
+
+                guCount++;
+                console.log("グー:", guCount, "チョキ:", choCount, "パー:", parCount);
+
+                let pc_hands = 0;
+
+                const ai = Math.random();
+
+                if (ai < 0.7) {
+
+                    if (guCount > choCount && guCount > parCount) {
+                        pc_hands = 2;
+                    } else if (choCount > guCount && choCount > parCount) {
+                        pc_hands = 0;
+                    } else if (parCount > guCount && parCount > choCount) {
+                        pc_hands = 1;
+                    } else {
+                        pc_hands = Math.floor(Math.random() * 3);
+                    }
+
+                } else {
+
+                    pc_hands = Math.floor(Math.random() * 3);
+
+                }
+
+                if (pc_hands === 0) {
+                    $("#pc_hands").text("✊ グー");
+                    $("#judgment").text("あいこ");
+                } else if (pc_hands === 1) {
+                    $("#pc_hands").text("✌️ チョキ");
+                    $("#judgment").text("勝ち");
+                    showConfetti();
+                    $("#judgment").css("transform", "scale(1.2)");
+                    setTimeout(function () {
+                        $("#judgment").css("transform", "scale(1)");
+                    }, 200);
+
+                } else if (pc_hands === 2) {
+                    $("#pc_hands").text("✋ パー");
+                    $("#judgment").text("負け");
+                }
+
+                aiComment();
+            });
+
+            $("#cho_btn").on("click", function () {
+
+                choCount++;
+                console.log("グー:", guCount, "チョキ:", choCount, "パー:", parCount);
+
+                let pc_hands = 0;
+
+                const ai = Math.random();
+
+                if (ai < 0.7) {
+
+                    if (guCount > choCount && guCount > parCount) {
+                        pc_hands = 2;
+                    } else if (choCount > guCount && choCount > parCount) {
+                        pc_hands = 0;
+                    } else if (parCount > guCount && parCount > choCount) {
+                        pc_hands = 1;
+                    } else {
+                        pc_hands = Math.floor(Math.random() * 3);
+                    }
+
+                } else {
+
+                    pc_hands = Math.floor(Math.random() * 3);
+
+                }
+
+                if (pc_hands === 0) {
+                    $("#pc_hands").text("✊ グー");
+                    $("#judgment").text("負け");
+                } else if (pc_hands === 1) {
+                    $("#pc_hands").text("✌️ チョキ");
+                    $("#judgment").text("あいこ");
+                } else if (pc_hands === 2) {
+                    $("#pc_hands").text("✋ パー");
+                    $("#judgment").text("勝ち");
+                    showConfetti();
+
+                    $("#judgment").css("transform", "scale(1.2)");
+                    setTimeout(function () {
+                        $("#judgment").css("transform", "scale(1)");
+                    }, 200);
+                }
+
+                aiComment();
+            });
+
+            $("#par_btn").on("click", function () {
+
+                parCount++;
+                console.log("グー:", guCount, "チョキ:", choCount, "パー:", parCount);
+
+                let pc_hands = 0;
+
+                const ai = Math.random();
+
+                if (ai < 0.7) {
+
+                    if (guCount > choCount && guCount > parCount) {
+                        pc_hands = 2;
+                    } else if (choCount > guCount && choCount > parCount) {
+                        pc_hands = 0;
+                    } else if (parCount > guCount && parCount > choCount) {
+                        pc_hands = 1;
+                    } else {
+                        pc_hands = Math.floor(Math.random() * 3);
+                    }
+
+                } else {
+
+                    pc_hands = Math.floor(Math.random() * 3);
+
+                }
+
+                if (pc_hands === 0) {
+                    $("#pc_hands").text("✊ グー");
+                    $("#judgment").text("勝ち");
+                    showConfetti();
+
+                    $("#judgment").css("transform", "scale(1.2)");
+                    setTimeout(function () {
+                        $("#judgment").css("transform", "scale(1)");
+                    }, 200);
+
+                } else if (pc_hands === 1) {
+                    $("#pc_hands").text("✌️ チョキ");
+                    $("#judgment").text("負け");
+                } else if (pc_hands === 2) {
+                    $("#pc_hands").text("✋ パー");
+                    $("#judgment").text("あいこ");
+                }
+
+                aiComment();
+            });
+
+            function aiComment() {
+
+                if (guCount > choCount && guCount > parCount) {
+                    $("#ai_comment").text("AI: あなたはグーが多いですね...");
+                }
+                else if (choCount > guCount && choCount > parCount) {
+                    $("#ai_comment").text("AI: チョキが好きみたいですね");
+                }
+                else if (parCount > guCount && parCount > choCount) {
+                    $("#ai_comment").text("AI: パーばかりですね");
+                }
+                else {
+                    $("#ai_comment").text("AI: まだ癖が読めません");
+                }
+
+            }
+
+            function showConfetti() {
+                const container = $("#confetti-container");
+                container.empty();
+
+                const colors = ["#ff4d6d", "#ffbe0b", "#3a86ff", "#8338ec", "#06d6a0"];
+
+                for (let i = 0; i < 40; i++) {
+                    const confetti = $("<div class='confetti'></div>");
+
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 0.8;
+                    const size = 8 + Math.random() * 10;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+
+                    confetti.css({
+                        left: left + "vw",
+                        backgroundColor: color,
+                        width: size + "px",
+                        height: size * 1.4 + "px",
+                        animationDelay: delay + "s"
+                    });
+
+                    container.append(confetti);
+                }
+
+                setTimeout(function () {
+                    container.empty();
+                }, 3000);
+            }
+
+
+        </script>
+    </body>
+
+</html>
